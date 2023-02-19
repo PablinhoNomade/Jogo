@@ -1,4 +1,4 @@
-![](https://www.oficinadanet.com.br/imagens/post/40939/capa-filmes-bang-bang.jpg)
+![](https://raw.githubusercontent.com/PablinhoNomade/Jogo-Bang-Bang/main/capaBang.jpg)
 Obs:Para um melhor aproveitamento do jogo aconselhamos utiliza-lo em um aparelho celular
 # Bang Bang !
 
