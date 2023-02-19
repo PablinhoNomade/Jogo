@@ -108,7 +108,7 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
         <button class="btnPlayAudio btn btn-warning" onclick="startGame()" type="button">
             <h2> PLAY GAME </h2>
         </button>
-        <button class="btnPlayAudio btn btn-warning" onclick="resetscore()" type="button">
+        <button class="btnPlayAudio btn btn-warning" onclick="history.go(0)" type="button">
             <h2> RESET </h2>
         </button>
         <button class="btnPlayAudio btn btn-success" onclick="enableLoop()" type="button">
@@ -122,8 +122,8 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
 <P> </P>
 <P> </P>
 <div style="display: flex; justify-content: center; align-items: center;">
-    <canvas width="1000%" height="1100% "
-        style="background-image: url(https://img.freepik.com/vetores-gratis/cena-da-floresta-com-lago-e-muitas-arvores-na-hora-do-por-do-sol_1308-55699.jpg?w=2000); display: flex; justify-content: center; align-items: center; text-align: center;"></canvas>
+    <canvas width="1000%" height="1100%"
+        style="background-image: url(https://img.freepik.com/vetores-gratis/cena-da-floresta-com-lago-e-muitas-arvores-na-hora-do-por-do-sol_1308-55699.jpg?w=2000); display: flex; background-size: cover;  justify-content: center; align-items: center; text-align: center; background-repeat: no-repeat;"></canvas>
 </div>
 <script>
 
@@ -138,19 +138,10 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
     document.querySelector(".nome").innerHTML = nome
     let chances = 5;
     var score = 0;
-
+    let gamerover = 1
 
 
     var velocidade = 10000
-
-    function resetscore() {
-        score = 0
-        chances = 5
-        velocidade = 10000
-        document.querySelector(".resultado").innerHTML = score
-        document.querySelector(".chances").innerHTML = chances
-        // velocidade = velocidade + (150 * score)
-    }
 
 
     // Audio e musica  
@@ -166,7 +157,7 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
         audioSom = true
 
     }
-    let envio = 1
+
     function disableaudio() {
         audioSom = false;
         x.loop = false;
@@ -174,7 +165,7 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
     }
 
     let tabela = [
-        "Nome : João score: 2"
+        "<p>" + "Nome : João score: 2"
     ]
 
     // Fim audio 
@@ -242,8 +233,7 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
                 velocidade = velocidade - 150
 
                 alert('😉 Bang ! Você acertou!');
-                // console.log("score", score)
-                // console.log("velocidade 1", velocidade)
+
                 document.querySelector(".resultado").innerHTML = score
 
 
@@ -254,18 +244,22 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
                 chances = chances - 1
                 document.querySelector(".chances").innerHTML = chances
 
-            } else {
-                alert("GAME OVER ☹ , Atualize a tela para jogar novamente ! ")
+            } else if (chances == 0 && gamerover > 0) {
+
+                gamerover = 0
+                alert("GAME OVER ☹ , Clique em Reset para jogar novamente ! ")
                 let st = "<p>" + "Nome: " + nome + " score: " + score
 
-                if (pus == 1) {
-                    tabela.push(st)
-                    pus = pus + 1
-                }
+                tabela.push(st)
 
                 document.querySelector(".tabela").innerHTML = tabela
                 velocidade = 100000
+
+            } else {
+                alert("GAME OVER ☹ , Clique em Reset para jogar novamente ! ")
+
             }
+
 
 
             function set1() {
@@ -282,7 +276,6 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
             console.log("velocidade2 ", velocidade)
 
         }
-
 
         set1()
         tela.onclick = dispara;
