@@ -19,7 +19,9 @@ a partir dai vc mais bônus para jogar novamente e ter mais chances de acertar m
 Bang!
 
 PRINT DO JOGO 
-![](https://raw.githubusercontent.com/PablinhoNomade/Jogo-Bang-Bang/main/Print%20Jogo.jpg)
+![](https://raw.githubusercontent.com/PablinhoNomade/Jogo-Bang-Bang/main/PrintMenu.jpg)
+![](https://raw.githubusercontent.com/PablinhoNomade/Jogo-Bang-Bang/main/PrintGAME.jpg)
+
 
 
 ----
