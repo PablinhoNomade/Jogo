@@ -12,13 +12,13 @@
 Jogo desenvolvido Pablo Almeida 
 https://www.linkedin.com/in/pablo-almeida-255101223/ -->
 
-
 <!DOCTYPE html>
-
-<html lang='pt-br'>
+<html lang="en" class="no-js">
 
 <head>
-    <meta charset='UTF-8'>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <head>
         <meta charset="utf-8">
@@ -33,357 +33,93 @@ https://www.linkedin.com/in/pablo-almeida-255101223/ -->
         <meta name="twitter:image:alt" content="Thumbnail">
         <meta name="description" content="Versão Beta | Jogo Tiro Ao Alvo  | Bang Bang ">
 
-        <link rel="stylesheet" type="text/css"
-            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-        </link>
+        <link rel="shortcut icon" href="./img/bang_icon.ico">
+        <link rel="stylesheet" type="text/css" href="css/normalize.css" />
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+        <link rel="stylesheet" type="text/css" href="css/component2.css" />
 
-        <script src="https://code.jquery.com/jquery-2.2.4.min.js"
-            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+        <script src="js/modernizr-2.6.2.min.js"></script>
 
-        <style>
-            .btnPlayAudio {
-                min-width: 200px;
-                margin-top: 10px;
-                display: inline-block;
-            }
-        </style>
-        </meta>
 
     </head>
 
 <body>
-    <style rel="stylesheet" width="1000" height="1000">
-        body {
-            background-position: center;
-            background-size: 150%;
-            background-image: url("https://img.freepik.com/vetores-premium/placa-de-madeira-de-desenho-animado_26659-28.jpg");
-            background-repeat: no-repeat;
-            background-position: top;
+    <div class="container">
+        <!-- Top Navigation -->
 
+        <header>
+            <div class="component">
+                <h1>Bang - Bang! </h1>
+                <h1><span>Clique no Menu para começar !</span></h1>
+                <br></br>
+                <br></br>
+                <br></br>
+        </header>
 
+        <h2></h2>
+        <!-- Start Nav Structure -->
+        <button class="cn-button" id="cn-button" onclick="enableLoop()">Menu</button>
+        <div class=" cn-wrapper" id="cn-wrapper">
+            <ul>
+                <li><a onclick="tiroplay()"><span>Play Game</span></a></li>
+                <li><a onclick="tirogit()"><span>Github</span></a></li>
+                <li><a onclick="tirolik()"><span>Linkedin</span></a></li>
 
+            </ul>
+        </div>
+        <!-- End of Nav Structure -->
+        <audio id="myAudio" play="autoplay">
+            <source src="sound/Ennio Morricone - Per un pugno di dollari (320 kbps).mp3" type="audio/ogg">
+            <source src="sound/Ennio Morricone - Per un pugno di dollari (320 kbps).mp3" type="audio/mpeg">
+        </audio>
+
+    </div>
+    <script>
+        var x = document.getElementById("myAudio");
+
+        let audioSom = false
+
+        function enableLoop() {
+            if (!audioSom) {
+                x.loop = true;
+                x.load();
+                x.play()
+                audioSom = true
+            }
         }
-    </style>
+
+        function tirolik() {
+            const tiro = new Audio("sound/tiro.mp3");
+            tiro.load();
+            tiro.play();
+            setTimeout(function () {
+                window.open("https://www.linkedin.com/in/pablo-almeida-255101223/", "_blank")
+            }, 3000)
+        }
+        function tirogit() {
+            const tiro = new Audio("sound/tiro.mp3");
+            tiro.load();
+            tiro.play()
+            setTimeout(function () {
+                window.open("https://github.com/pablinhonomade", "_blank")
+            }, 3000)
+        }
+        function tiroplay() {
+            const tiro = new Audio("sound/tiro.mp3");
+            tiro.load();
+            tiro.play()
+            setTimeout(function () {
+                window.location.href = "src/playgame.html";
+            }, 3000)
+            // window("index.html")
+        }
 
 
-
-    <p></p>
-    <p></p>
-
-    <h1 style='text-align: center;' font-style="oblique;" margin-top=" 0px;" margin-bottom=" 0%;">________Acerte o Meio
-        do Alvo________ </h1>
-
-    <div style=" text-align: center;">
-
-        <h3 style="color: rgb(68, 56, 56);" font-style="oblique;" margin-top=" 0px;" margin-bottom=" 0%;"><b>Nome :
-            </b><u class="nome"> </u>
-        </h3>
-    </div>
-    <div>
-        <h2 class="j" style="color: rgb(8, 8, 8);"><b>Chances</b></h2>
-        <h1 class=" g" style="color: rgb(8, 8, 8);"><u class="chances"> 5</u>
-        </h1>
-        <style>
-            .j {
-                text-align: center;
-                margin-top: 0px;
-                margin-bottom: 0%;
-                font-style: oblique;
-            }
-
-            .g {
-                text-align: center;
-                font-size: 800%;
-                margin-top: 0px;
-                margin-bottom: 0%;
-            }
-        </style>
-    </div>
-    <div style=" text-align: center;">
-        <h3 style="color: whitesmoke;" font-style="oblique;" margin-top=" 0px;" margin-bottom=" 0%;">Score : <e
-                class="resultado"> 0</e>
-        </h3>
-    </div>
-    <P> </P>
-    <P> </P>
-    <P> </P>
-
-    <audio id="myAudio" play="autoplay">
-        <source src="https://instrumentalfx.co/wp-content/upload/11/The-Good-the-Bad-and-the-Ugly.mp3" type="audio/ogg">
-        <source src="https://instrumentalfx.co/wp-content/upload/11/The-Good-the-Bad-and-the-Ugly.mp3"
-            type="audio/mpeg">
-    </audio>
-    <div style="text-align: center;">
-        <button class="btnPlayAudio btn btn-primary" onclick="disableaudio()" type="button">
-            <h2> Mute </h2>
-        </button>
-        <button class="btnPlayAudio btn btn-warning" onclick="startGame()" type="button">
-            <h2> PLAY GAME </h2>
-        </button>
-        <button class="btnPlayAudio btn btn-warning" onclick="history.go(0)" type="button">
-            <h2> RESET </h2>
-        </button>
-        <button class="btnPlayAudio btn btn-success" onclick="enableLoop()" type="button">
-            <h2> Music </h2>
-        </button>
-    </div>
-
+    </script>
+    </div><!-- /container -->
+    <script src="js/polyfills.js"></script>
+    <script src="js/demo2.js"></script>
 
 </body>
-
-<P> </P>
-<P> </P>
-<div style="display: flex; justify-content: center; align-items: center;">
-    <canvas width="1000%" height="1100%"
-        style="background-image: url(https://img.freepik.com/vetores-gratis/cena-da-floresta-com-lago-e-muitas-arvores-na-hora-do-por-do-sol_1308-55699.jpg?w=2000); display: flex; background-size: cover;  justify-content: center; align-items: center; text-align: center; background-repeat: no-repeat;"></canvas>
-</div>
-<script>
-
-    var nome = prompt("(JOGO VERSÃO BETA) - Informe o seu nome");
-
-    function proarray(palavra) {
-        document.write(palavra);
-
-    }
-
-
-    document.querySelector(".nome").innerHTML = nome
-    let chances = 5;
-    var score = 0;
-    let gamerover = 1
-
-
-    var velocidade = 10000
-
-
-    // Audio e musica  
-
-    var x = document.getElementById("myAudio");
-
-    let audioSom = true
-
-    function enableLoop() {
-        x.loop = true;
-        x.load();
-        x.play()
-        audioSom = true
-
-    }
- let envio = 1
-    function disableaudio() {
-        audioSom = false;
-        x.loop = false;
-        x.load();
-    }
-
-    let tabela = [
-        "<p>" + "Nome : João score: 2"
-    ]
-
-    // Fim audio 
-
-    function startGame() {
-        x.loop = true;
-        x.load();
-        x.play()
-
-        var tela = document.querySelector('canvas');
-        var pincel = tela.getContext('2d');
-        var raio = 20;
-        var raiodeacerto = 40;
-        var xAleatorio;
-        var yAleatorio;
-
-        function desenhaCirculo(x, y, raio, cor) {
-            pincel.fillStyle = cor;
-            pincel.beginPath();
-            pincel.arc(x, y, raio, 0, 2 * Math.PI);
-            pincel.fill();
-
-        };
-
-        function limpaTela() {
-            pincel.clearRect(0, 0, 1000, 1100);
-
-        };
-
-        function desenhaAlvo(x, y) {
-            desenhaCirculo(x, y, raio + 40, 'red');
-            desenhaCirculo(x, y, raio + 20, 'white');
-            desenhaCirculo(x, y, raio, 'red');
-
-        };
-
-        function sorteiaPosicao(maximo) {
-            return Math.floor(Math.random() * maximo);
-
-        };
-
-        function atualizaTela1() {
-
-            limpaTela();
-            xAleatorio = sorteiaPosicao(1000);
-            yAleatorio = sorteiaPosicao(1100);
-            desenhaAlvo(xAleatorio, yAleatorio);
-
-        }; atualizaTela1()
-        // 
-        function dispara(evento) {
-            var pus = 1
-            const audio = new Audio('https://sounds-mp3.com/mp3/0008657.mp3');
-            if (audioSom == true && chances > 0) {
-                audio.play();
-            }
-
-            var x = evento.pageX - tela.offsetLeft;
-            var y = evento.pageY - tela.offsetTop;
-
-            if (chances > 0 && (x > xAleatorio - raiodeacerto) && (x < xAleatorio + raiodeacerto) && (y > yAleatorio - raiodeacerto) && (y < yAleatorio + raiodeacerto)) {
-                rap = false
-                score++
-
-                velocidade = velocidade - 150
-
-//                 alert('😉 Bang ! Você acertou!');
-
-                document.querySelector(".resultado").innerHTML = score
-
-
-                set1()
-
-
-            } else if (chances > 0) {
-                chances = chances - 1
-                document.querySelector(".chances").innerHTML = chances
-
-            } else if (chances == 0 && gamerover > 0) {
-
-                gamerover = 0
-                alert("GAME OVER ☹ , Clique em Reset para jogar novamente ! ")
-                let st = "<p>" + "Nome: " + nome + " score: " + score
-
-                tabela.push(st)
-
-                document.querySelector(".tabela").innerHTML = tabela
-                velocidade = 100000
-
-            } else {
-                alert("GAME OVER ☹ , Clique em Reset para jogar novamente ! ")
-
-            }
-
-
-
-            function set1() {
-                setInterval(atualizaTela1, Number(velocidade))
-                console.log("velocidade2 ", velocidade)
-
-            }
-
-        }
-
-
-        function set1() {
-            setInterval(atualizaTela1, Number(velocidade))
-            console.log("velocidade2 ", velocidade)
-
-        }
-
-        set1()
-        tela.onclick = dispara;
-
-    }
-
-
-</script>
-<footer style="text-align: center;">
-    <style rel="stylesheet" width="1000" height="1000">
-        footer {
-            background-position: center;
-            background-size: 100%;
-            background-image: url("https://w7.pngwing.com/pngs/49/677/png-transparent-gray-graphic-design-metal-silver-skin-metal-texture-plate-signs-label-rectangle-plate.png");
-            background-repeat: no-repeat;
-            background-position: 0px 0px 0px 0px;
-            background-position: top;
-            margin-left: 2%;
-        }
-    </style>
-    <br><br>
-    <h1>
-        Score Geral </h1>
-    <br>
-    <div>
-        <h1 class="tabela" style="color: rgb(8, 8, 8);"><b class="tabela">tabela</b>
-
-        </h1>
-    </div>
-    <script>
-        document.querySelector(".tabela").innerHTML = tabela
-    </script>
-    <style>
-        .tabela {
-            text-align: left;
-            height: 300px;
-            width: 840px;
-            overflow-y: scroll;
-            background-color: white;
-            margin-left: 5%;
-        }
-    </style>
-    <a href=" whatsapp://send?text=https://pablinhonomade.github.io/Jogo-Bang-Bang Olha que jogo legal não precisa instalar pra jogar e só entrar no site. Quero ver se você consegue fazer mais ponto do que eu." onclick="dio()" type="button">
-        <h3 style=" color:chartreuse;" ">~~> <b>Clique aqui e compartilhe com seu amigo no Whatsapp
-                e </h3>
-        </b>
-        <h1 style=" color:rgb(243, 240, 91);">
-            GANHE mais
-            10
-            chances</h1>
-            </b>
-            <br>
-    </a>
-    <script>
-        function bnEX() {
-            if (envio == 1) {
-                chances = chances + 10
-                gamerover = 1
-                document.querySelector(".chances").innerHTML = chances
-                envio++
-            }
-        }
-
-        function dio() {
-            setTimeout(bnEX, 1000 * 7)
-        }
-
-    </script>
-</footer>
-<div class="box">
-    <a href="https://www.linkedin.com/in/pablo-almeida-255101223/">Linkedin
-        <img width="120" height="120"
-            src="https://cdn.icon-icons.com/icons2/3041/PNG/512/linkedin_logo_icon_189225.png">
-
-     </a>
-
-    <a href="https://clustrmaps.com/site/1bt9z" style="color: white;">Top Secret<img
-            src="//www.clustrmaps.com/map_v2.png?d=572Qn78gyjN3gBR93YvCTZbUP1XHUcEoiqLeO0WLIBI&cl=ffffff" style="width: 1px;
-   height: 1px;"></a></img>
-    <p></p>
-    </a>
-
-    <a href=" https://github.com/PablinhoNomade"> Github
-        <img width="100" height="100" src="https://cdn-icons-png.flaticon.com/512/5968/5968866.png">
-
-    </a>
-
-</div>
-<style>
-    div.box {
-        font-size: 50px;
-        align-items: center;
-        display: flex;
-        justify-content: center;
-
-    }
-</style>
 
 </html>
